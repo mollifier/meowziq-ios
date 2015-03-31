@@ -3,7 +3,7 @@
 //  MeowziqTests
 //
 //  Created by Seiji Kohyama on 2015/03/31.
-//  Copyright (c) 2015年 emanon001. All rights reserved.
+//  Copyright (c) 2015年 FaithCreates Inc. All rights reserved.
 //
 
 import UIKit
