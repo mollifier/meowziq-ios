@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14FC96CA9A3B2A8732A1EE8 /* Pods_Meowziq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B72E45403570087E81856E33 /* Pods_Meowziq.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C39F4A701ACA91A000FF77AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A6F1ACA91A000FF77AD /* AppDelegate.swift */; };
 		C39F4A721ACA91A000FF77AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A711ACA91A000FF77AD /* ViewController.swift */; };
 		C39F4A751ACA91A000FF77AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A731ACA91A000FF77AD /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233CD97096DDE1C94FEF17F9 /* Pods-Meowziq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowziq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meowziq/Pods-Meowziq.debug.xcconfig"; sourceTree = "<group>"; };
+		A504EB3CD795286C7838B899 /* Pods-Meowziq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowziq.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meowziq/Pods-Meowziq.release.xcconfig"; sourceTree = "<group>"; };
+		B72E45403570087E81856E33 /* Pods_Meowziq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meowziq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39F4A6A1ACA91A000FF77AD /* Meowziq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meowziq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39F4A6E1ACA91A000FF77AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39F4A6F1ACA91A000FF77AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14FC96CA9A3B2A8732A1EE8 /* Pods_Meowziq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86D060A3B00FD7F4C17CE454 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B72E45403570087E81856E33 /* Pods_Meowziq.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C39F4A611ACA91A000FF77AD = {
 			isa = PBXGroup;
 			children = (
 				C39F4A6C1ACA91A000FF77AD /* Meowziq */,
 				C39F4A821ACA91A000FF77AD /* MeowziqTests */,
 				C39F4A6B1ACA91A000FF77AD /* Products */,
+				DE2759019140C46246E62221 /* Pods */,
+				86D060A3B00FD7F4C17CE454 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +127,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DE2759019140C46246E62221 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				233CD97096DDE1C94FEF17F9 /* Pods-Meowziq.debug.xcconfig */,
+				A504EB3CD795286C7838B899 /* Pods-Meowziq.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C39F4A891ACA91A000FF77AD /* Build configuration list for PBXNativeTarget "Meowziq" */;
 			buildPhases = (
+				523D26CCFE6EE29E2C011DD4 /* Check Pods Manifest.lock */,
 				C39F4A661ACA91A000FF77AD /* Sources */,
 				C39F4A671ACA91A000FF77AD /* Frameworks */,
 				C39F4A681ACA91A000FF77AD /* Resources */,
+				FA9B8967D92A3CD02780104D /* Embed Pods Frameworks */,
+				FA02B201FE5A7DCBB78299CD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +233,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		523D26CCFE6EE29E2C011DD4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA02B201FE5A7DCBB78299CD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meowziq/Pods-Meowziq-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA9B8967D92A3CD02780104D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meowziq/Pods-Meowziq-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C39F4A661ACA91A000FF77AD /* Sources */ = {
@@ -336,6 +411,7 @@
 		};
 		C39F4A8A1ACA91A000FF77AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233CD97096DDE1C94FEF17F9 /* Pods-Meowziq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Meowziq/Info.plist;
@@ -347,6 +423,7 @@
 		};
 		C39F4A8B1ACA91A000FF77AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A504EB3CD795286C7838B899 /* Pods-Meowziq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Meowziq/Info.plist;
