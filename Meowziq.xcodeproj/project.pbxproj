@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C39F4A701ACA91A000FF77AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A6F1ACA91A000FF77AD /* AppDelegate.swift */; };
+		C39F4A721ACA91A000FF77AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A711ACA91A000FF77AD /* ViewController.swift */; };
+		C39F4A751ACA91A000FF77AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A731ACA91A000FF77AD /* Main.storyboard */; };
+		C39F4A771ACA91A000FF77AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A761ACA91A000FF77AD /* Images.xcassets */; };
+		C39F4A7A1ACA91A000FF77AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A781ACA91A000FF77AD /* LaunchScreen.xib */; };
+		C39F4A861ACA91A000FF77AD /* MeowziqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A851ACA91A000FF77AD /* MeowziqTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C39F4A801ACA91A000FF77AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C39F4A621ACA91A000FF77AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C39F4A691ACA91A000FF77AD;
+			remoteInfo = Meowziq;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C39F4A6A1ACA91A000FF77AD /* Meowziq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meowziq.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C39F4A6E1ACA91A000FF77AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C39F4A6F1ACA91A000FF77AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C39F4A711ACA91A000FF77AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C39F4A741ACA91A000FF77AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C39F4A761ACA91A000FF77AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C39F4A791ACA91A000FF77AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C39F4A7F1ACA91A000FF77AD /* MeowziqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeowziqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C39F4A841ACA91A000FF77AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C39F4A851ACA91A000FF77AD /* MeowziqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowziqTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C39F4A671ACA91A000FF77AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C39F4A7C1ACA91A000FF77AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C39F4A611ACA91A000FF77AD = {
+			isa = PBXGroup;
+			children = (
+				C39F4A6C1ACA91A000FF77AD /* Meowziq */,
+				C39F4A821ACA91A000FF77AD /* MeowziqTests */,
+				C39F4A6B1ACA91A000FF77AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C39F4A6B1ACA91A000FF77AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C39F4A6A1ACA91A000FF77AD /* Meowziq.app */,
+				C39F4A7F1ACA91A000FF77AD /* MeowziqTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C39F4A6C1ACA91A000FF77AD /* Meowziq */ = {
+			isa = PBXGroup;
+			children = (
+				C39F4A6F1ACA91A000FF77AD /* AppDelegate.swift */,
+				C39F4A711ACA91A000FF77AD /* ViewController.swift */,
+				C39F4A731ACA91A000FF77AD /* Main.storyboard */,
+				C39F4A761ACA91A000FF77AD /* Images.xcassets */,
+				C39F4A781ACA91A000FF77AD /* LaunchScreen.xib */,
+				C39F4A6D1ACA91A000FF77AD /* Supporting Files */,
+			);
+			path = Meowziq;
+			sourceTree = "<group>";
+		};
+		C39F4A6D1ACA91A000FF77AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C39F4A6E1ACA91A000FF77AD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C39F4A821ACA91A000FF77AD /* MeowziqTests */ = {
+			isa = PBXGroup;
+			children = (
+				C39F4A851ACA91A000FF77AD /* MeowziqTests.swift */,
+				C39F4A831ACA91A000FF77AD /* Supporting Files */,
+			);
+			path = MeowziqTests;
+			sourceTree = "<group>";
+		};
+		C39F4A831ACA91A000FF77AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C39F4A841ACA91A000FF77AD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C39F4A691ACA91A000FF77AD /* Meowziq */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C39F4A891ACA91A000FF77AD /* Build configuration list for PBXNativeTarget "Meowziq" */;
+			buildPhases = (
+				C39F4A661ACA91A000FF77AD /* Sources */,
+				C39F4A671ACA91A000FF77AD /* Frameworks */,
+				C39F4A681ACA91A000FF77AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Meowziq;
+			productName = Meowziq;
+			productReference = C39F4A6A1ACA91A000FF77AD /* Meowziq.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C39F4A7E1ACA91A000FF77AD /* MeowziqTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C39F4A8C1ACA91A000FF77AD /* Build configuration list for PBXNativeTarget "MeowziqTests" */;
+			buildPhases = (
+				C39F4A7B1ACA91A000FF77AD /* Sources */,
+				C39F4A7C1ACA91A000FF77AD /* Frameworks */,
+				C39F4A7D1ACA91A000FF77AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C39F4A811ACA91A000FF77AD /* PBXTargetDependency */,
+			);
+			name = MeowziqTests;
+			productName = MeowziqTests;
+			productReference = C39F4A7F1ACA91A000FF77AD /* MeowziqTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C39F4A621ACA91A000FF77AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = emanon001;
+				TargetAttributes = {
+					C39F4A691ACA91A000FF77AD = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					C39F4A7E1ACA91A000FF77AD = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = C39F4A691ACA91A000FF77AD;
+					};
+				};
+			};
+			buildConfigurationList = C39F4A651ACA91A000FF77AD /* Build configuration list for PBXProject "Meowziq" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C39F4A611ACA91A000FF77AD;
+			productRefGroup = C39F4A6B1ACA91A000FF77AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C39F4A691ACA91A000FF77AD /* Meowziq */,
+				C39F4A7E1ACA91A000FF77AD /* MeowziqTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C39F4A681ACA91A000FF77AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39F4A751ACA91A000FF77AD /* Main.storyboard in Resources */,
+				C39F4A7A1ACA91A000FF77AD /* LaunchScreen.xib in Resources */,
+				C39F4A771ACA91A000FF77AD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C39F4A7D1ACA91A000FF77AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C39F4A661ACA91A000FF77AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39F4A721ACA91A000FF77AD /* ViewController.swift in Sources */,
+				C39F4A701ACA91A000FF77AD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C39F4A7B1ACA91A000FF77AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39F4A861ACA91A000FF77AD /* MeowziqTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C39F4A811ACA91A000FF77AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C39F4A691ACA91A000FF77AD /* Meowziq */;
+			targetProxy = C39F4A801ACA91A000FF77AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C39F4A731ACA91A000FF77AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C39F4A741ACA91A000FF77AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C39F4A781ACA91A000FF77AD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C39F4A791ACA91A000FF77AD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C39F4A871ACA91A000FF77AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C39F4A881ACA91A000FF77AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C39F4A8A1ACA91A000FF77AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Meowziq/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C39F4A8B1ACA91A000FF77AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Meowziq/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C39F4A8D1ACA91A000FF77AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MeowziqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meowziq.app/Meowziq";
+			};
+			name = Debug;
+		};
+		C39F4A8E1ACA91A000FF77AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MeowziqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meowziq.app/Meowziq";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C39F4A651ACA91A000FF77AD /* Build configuration list for PBXProject "Meowziq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C39F4A871ACA91A000FF77AD /* Debug */,
+				C39F4A881ACA91A000FF77AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C39F4A891ACA91A000FF77AD /* Build configuration list for PBXNativeTarget "Meowziq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C39F4A8A1ACA91A000FF77AD /* Debug */,
+				C39F4A8B1ACA91A000FF77AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C39F4A8C1ACA91A000FF77AD /* Build configuration list for PBXNativeTarget "MeowziqTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C39F4A8D1ACA91A000FF77AD /* Debug */,
+				C39F4A8E1ACA91A000FF77AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C39F4A621ACA91A000FF77AD /* Project object */;
+}
