@@ -15,9 +15,9 @@ class APIClient {
     private final class Urls {
         private init() {}
         
-        var entryPoint = NSUserDefaults.standardUserDefaults().stringForKey("entryPoint") ?? ""
+        var apiServerURL = NSUserDefaults.standardUserDefaults().stringForKey("apiServerURL") ?? ""
         var songs: String {
-            return "\(entryPoint)/songs"
+            return "\(apiServerURL)/songs"
         }
         
         class var instance : Urls {
@@ -28,13 +28,13 @@ class APIClient {
         }
     }
     
-    class var entryPoint: String {
-        set(entryPoint) {
-            Urls.instance.entryPoint = entryPoint
-            NSUserDefaults.standardUserDefaults().setObject(self.entryPoint, forKey: "entryPoint")
+    class var apiServerURL: String {
+        set(apiServerURL) {
+            Urls.instance.apiServerURL = apiServerURL
+            NSUserDefaults.standardUserDefaults().setObject(self.apiServerURL, forKey: "apiServerURL")
         }
         get {
-            return Urls.instance.entryPoint
+            return Urls.instance.apiServerURL
         }
     }
     
