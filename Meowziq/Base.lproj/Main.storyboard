@@ -32,7 +32,7 @@
         <!--Settings View Controller-->
         <scene sceneID="9HQ-L1-4Nw">
             <objects>
-                <viewController id="rUZ-jp-Ag9" userLabel="Settings View Controller" sceneMemberID="viewController">
+                <viewController id="rUZ-jp-Ag9" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="Meowziq" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lse-mA-2tz"/>
                         <viewControllerLayoutGuide type="bottom" id="o4P-ZD-J1K"/>
@@ -51,10 +51,17 @@
                                 <rect key="frame" x="16" y="111" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="saveAPIServerURL:" destination="rUZ-jp-Ag9" eventType="editingDidEnd" id="Gqx-a0-mTr"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="apiServerURLLabel" destination="bx2-QA-FiG" id="UtR-M1-dM1"/>
+                        <outlet property="apiServerURLTextField" destination="QbV-A2-9BM" id="5cu-as-Ujd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSZ-0c-OS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
