@@ -45,7 +45,6 @@ class APIClient {
         let urlRequest = urlRequestWithComponentsForAddSong(
             Urls.instance.songs,
             song: songRawData,
-            artwork: song.artwork,
             parameters: [
                 "title": song.title,
                 "artist": song.artist
@@ -64,7 +63,7 @@ class APIClient {
     // ref. http://stackoverflow.com/questions/26121827/uploading-file-with-parameters-using-alamofire
     // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
     private class func urlRequestWithComponentsForAddSong(
-        urlString: String, song: NSData, artwork: MPMediaItemArtwork?, parameters: Dictionary<String, String>
+        urlString: String, song: NSData, parameters: Dictionary<String, String>
         ) -> (URLRequestConvertible, NSData)
     {
         
@@ -83,16 +82,6 @@ class APIClient {
         uploadData.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.m4a\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         uploadData.appendData("Content-Type: audio/mp4\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         uploadData.appendData(song)
-        
-        // add artwork
-        if let artwork = artwork {
-            let image = artwork.imageWithSize(artwork.bounds.size)
-            let imageData = UIImagePNGRepresentation(image)
-            uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData("Content-Disposition: form-data; name=\"artwork\"; filename=\"artwork.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData(imageData)
-        }
         
         // add parameters
         for (key, value) in parameters {
