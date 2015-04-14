@@ -2,6 +2,13 @@ machine:
   environment:
     XCODE_SCHEME: Meowziq
     XCODE_WORKSPACE: Meowziq.xcworkspace
+    APPNAME: Meowziq
+    DEPLOYGATE_USER_NAME: FaithCreates
+    DEVELOPER_NAME: "iPhone Distribution: FaithCreates Inc. (3T7T9FV472)"
+    PROFILE_NAME: "6d7927d4-5e5d-4d32-b4bc-742251de4e51.mobileprovision"
+    # DEPLOYGATE_API_TOKEN: set from web form
+    # P12_FILE_PASSWORD: set from web form
+
 dependencies:
   override:
     - pod install:
@@ -14,3 +21,12 @@ test:
         PROVISIONING_PROFILE=
         -workspace Meowziq.xcworkspace -scheme Meowziq -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
         clean test
+deployment:
+  deploygate:
+    branch: master
+    owner: xxx
+    commands:
+      - ./scripts/add-key.sh
+      - ./scripts/deploy.sh
+      - ./scripts/remove-key.sh
+
