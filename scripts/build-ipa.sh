@@ -175,7 +175,7 @@ main()
         -configuration "$configuration" \
         clean build \
         CODE_SIGN_IDENTITY="$developer_name" \
-        CONFIGURATION_BUILD_DIR="$output_path"
+        SYMROOT="$output_path"
     else
       # workspace指定ありの場合
       xcodebuild \
@@ -184,7 +184,7 @@ main()
         -configuration "$configuration" \
         clean build \
         CODE_SIGN_IDENTITY="$developer_name" \
-        CONFIGURATION_BUILD_DIR="$output_path"
+        SYMROOT="$output_path"
     fi
 
     if [ "$?" -ne 0 ]; then
@@ -194,12 +194,12 @@ main()
 
     # Signing
     xcrun -log -sdk iphoneos PackageApplication \
-      "${output_path}/${appname}.app" \
-      -o "${output_path}/${appname}.ipa" \
+      "${output_path}/${configuration}-iphoneos/${appname}.app" \
+      -o "${output_path}/${configuration}-iphoneos/${appname}.ipa" \
       -sign "$developer_name" \
       -embed "$provisioning_profile_path"
 
-    # 作成したipaファイルのパス = ${output_path}/${appname}.ipa
+    # 作成したipaファイルのパス = ${output_path}/${configuration}-iphoneos/${appname}.ipa
 }
 
 main "$@"

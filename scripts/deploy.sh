@@ -19,6 +19,6 @@ for config in "${configuration_list[@]}"; do
 
     ./scripts/upload-ipa-to-deploygate.sh \
         -u "$DEPLOYGATE_USER_NAME" -t "$DEPLOYGATE_API_TOKEN" -m "$message" \
-        "${output_path}/${APPNAME}.ipa"
+        "${output_path}/${config}-iphoneos/${APPNAME}.ipa"
 done
 
