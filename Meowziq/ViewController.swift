@@ -31,8 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = songs[indexPath.row].title
+        var cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as SongCell
+        cell.setCell(songs[indexPath.row])
+        
         return cell
     }
     

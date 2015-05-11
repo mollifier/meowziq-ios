@@ -14,6 +14,7 @@
 		C39F4A771ACA91A000FF77AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A761ACA91A000FF77AD /* Images.xcassets */; };
 		C39F4A7A1ACA91A000FF77AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F4A781ACA91A000FF77AD /* LaunchScreen.xib */; };
 		C39F4A861ACA91A000FF77AD /* MeowziqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F4A851ACA91A000FF77AD /* MeowziqTests.swift */; };
+		C3A959011B02067800D735FB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A959001B02067800D735FB /* SongCell.swift */; };
 		C3CD91831AD3D70D00ACAE58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CD91821AD3D70D00ACAE58 /* SettingsViewController.swift */; };
 		C3F1DAF71ACA99AE004C56A3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F1DAF61ACA99AE004C56A3 /* APIClient.swift */; };
 		C3F1DAF91ACA9B85004C56A3 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F1DAF81ACA9B85004C56A3 /* MusicManager.swift */; };
@@ -43,6 +44,7 @@
 		C39F4A7F1ACA91A000FF77AD /* MeowziqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeowziqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39F4A841ACA91A000FF77AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39F4A851ACA91A000FF77AD /* MeowziqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowziqTests.swift; sourceTree = "<group>"; };
+		C3A959001B02067800D735FB /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		C3CD91821AD3D70D00ACAE58 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C3F1DAF61ACA99AE004C56A3 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		C3F1DAF81ACA9B85004C56A3 /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				C3F1DAF61ACA99AE004C56A3 /* APIClient.swift */,
 				C3F1DAF81ACA9B85004C56A3 /* MusicManager.swift */,
 				C3CD91821AD3D70D00ACAE58 /* SettingsViewController.swift */,
+				C3A959001B02067800D735FB /* SongCell.swift */,
 			);
 			path = Meowziq;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				C3F1DAF91ACA9B85004C56A3 /* MusicManager.swift in Sources */,
 				C39F4A701ACA91A000FF77AD /* AppDelegate.swift in Sources */,
 				C3CD91831AD3D70D00ACAE58 /* SettingsViewController.swift in Sources */,
+				C3A959011B02067800D735FB /* SongCell.swift in Sources */,
 				C3F1DAF71ACA99AE004C56A3 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
