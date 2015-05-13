@@ -22,6 +22,15 @@ class SongCell : UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+        self.titleLabel.highlighted = selected
+        self.artistLabel.highlighted = selected
+    }
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        self.titleLabel.highlighted = highlighted;
+        self.artistLabel.highlighted = highlighted;
     }
     
     func setCell(item: MPMediaItem) {
