@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fyh-bI-hsL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,29 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yQT-go-55U">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yQT-go-55U">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="52" id="nWO-eF-nMb" customClass="SongCell" customModule="Meowziq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="56" id="nWO-eF-nMb" customClass="SongCell" customModule="Meowziq">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nWO-eF-nMb" id="D07-Yb-49d">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="artist" text="artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3w-1g-3vf">
-                                                    <rect key="frame" x="16" y="31" width="584" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="title" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-hW-bX7">
-                                                    <rect key="frame" x="16" y="0.0" width="584" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="title" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-hW-bX7">
+                                                    <rect key="frame" x="16" y="8" width="576" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="artist" text="artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3w-1g-3vf">
+                                                    <rect key="frame" x="16" y="33" width="576" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ejF-hW-bX7" firstAttribute="top" secondItem="D07-Yb-49d" secondAttribute="topMargin" id="4MP-L3-TXU"/>
+                                                <constraint firstItem="ejF-hW-bX7" firstAttribute="leading" secondItem="D07-Yb-49d" secondAttribute="leadingMargin" constant="8" id="NCe-QW-5lJ"/>
+                                                <constraint firstItem="ejF-hW-bX7" firstAttribute="leading" secondItem="w3w-1g-3vf" secondAttribute="leading" id="Ub7-9A-HL6"/>
+                                                <constraint firstItem="ejF-hW-bX7" firstAttribute="trailing" secondItem="w3w-1g-3vf" secondAttribute="trailing" id="pxa-1g-0DL"/>
+                                                <constraint firstItem="w3w-1g-3vf" firstAttribute="top" secondItem="ejF-hW-bX7" secondAttribute="bottom" constant="4" id="tvL-f2-jrn"/>
+                                                <constraint firstItem="ejF-hW-bX7" firstAttribute="trailing" secondItem="D07-Yb-49d" secondAttribute="trailingMargin" id="unW-sD-7yN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="w3w-1g-3vf" id="ovq-bg-wKw"/>
@@ -49,6 +58,13 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yQT-go-55U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FsW-Fo-uoo"/>
+                            <constraint firstItem="yQT-go-55U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jf1-Q9-UG3"/>
+                            <constraint firstAttribute="bottom" secondItem="yQT-go-55U" secondAttribute="bottom" id="mIH-9D-4jh"/>
+                            <constraint firstAttribute="trailing" secondItem="yQT-go-55U" secondAttribute="trailing" id="mwt-1V-DXl"/>
+                            <constraint firstAttribute="centerX" secondItem="yQT-go-55U" secondAttribute="centerX" id="ywJ-YY-sXa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8jP-VV-3HE">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="xdh-DY-x8o">
@@ -63,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549" y="387"/>
+            <point key="canvasLocation" x="1549" y="385"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9HQ-L1-4Nw">
