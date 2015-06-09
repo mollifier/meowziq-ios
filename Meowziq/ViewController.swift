@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import SVProgressHUD
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,17 +41,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        SVProgressHUD.showWithStatus("送信中……")
         let song = songs[indexPath.row]
         MusicManager.getSongRawData(
             song,
             success: { rawData in
                 APIClient.addSong(
                     song, songRawData: rawData,
-                    success: { println("successed add song") },
-                    fail: { println($0) }
+                    success: { SVProgressHUD.showSuccessWithStatus("送信成功!") },
+                    fail: { e in
+                        SVProgressHUD.showErrorWithStatus("送信失敗!")
+                        println(e)
+                    }
                 )
             },
-            fail: { println($0) }
+            fail: { e in
+                SVProgressHUD.showErrorWithStatus("送信失敗!")
+                println(e)
+            }
         )
     }
 }
