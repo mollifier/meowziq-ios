@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Meowziq' do
   pod 'Alamofire', '~> 1.1'
+  pod 'SVProgressHUD'
 end
 
 target 'MeowziqTests' do
