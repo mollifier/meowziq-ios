@@ -25,6 +25,6 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func saveAPIServerURL(sender: AnyObject) {
-        APIClient.apiServerURL = apiServerURLTextField.text
+        APIClient.apiServerURL = apiServerURLTextField.text!
     }
 }

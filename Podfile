@@ -4,7 +4,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Meowziq' do
-  pod 'Alamofire', '~> 1.1'
+  pod 'Alamofire', '~> 2.0'
   pod 'SVProgressHUD'
 end
 

@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as SongCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! SongCell
         cell.setCell(songs[indexPath.row])
         
         return cell
@@ -51,13 +51,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     success: { SVProgressHUD.showSuccessWithStatus("送信成功!") },
                     fail: { e in
                         SVProgressHUD.showErrorWithStatus("送信失敗!")
-                        println(e)
+                        print(e)
                     }
                 )
             },
             fail: { e in
                 SVProgressHUD.showErrorWithStatus("送信失敗!")
-                println(e)
+                print(e)
             }
         )
     }

@@ -19,7 +19,7 @@ class MusicManager {
     class func getSongs() -> [MPMediaItem] {
         let songsQuery = MPMediaQuery.songsQuery()
         songsQuery.addFilterPredicate(MPMediaPropertyPredicate(value: false, forProperty: MPMediaItemPropertyIsCloudItem))
-        return songsQuery.items as [MPMediaItem]
+        return songsQuery.items as [MPMediaItem]!
     }
     
     class func getSongRawData(
@@ -31,7 +31,7 @@ class MusicManager {
             exporter.exportAsynchronouslyWithCompletionHandler({ () -> Void in
                 switch exporter.status {
                 case .Completed:
-                    let rawData = NSData(contentsOfURL: exporter.outputURL)!
+                    let rawData = NSData(contentsOfURL: exporter.outputURL!)!
                     success(rawData)
                 default:
                     let e = NSError(
@@ -49,17 +49,16 @@ class MusicManager {
     
     private class func createSongExporter(item: MPMediaItem) -> AVAssetExportSession {
         let url = item.assetURL
-        let asset = AVURLAsset(URL: url, options: nil)
+        let asset = AVURLAsset(URL: url!, options: nil)
         let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)
         
-        exporter.outputFileType = "com.apple.m4a-audio";
+        exporter!.outputFileType = "com.apple.m4a-audio";
         
-        let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         let fileName = createExportFileName()
-        let exportFilePath = docDir.stringByAppendingPathComponent(fileName)
-        exporter.outputURL = NSURL(fileURLWithPath: exportFilePath)
+        exporter!.outputURL = NSURL(fileURLWithPath: docDir).URLByAppendingPathComponent(fileName)
         
-        return exporter
+        return exporter!
     }
     
     private class func createExportFileName() -> String {
@@ -72,6 +71,11 @@ class MusicManager {
     
     private class func removeExportedFile(url: NSURL) -> Void {
         let manager = NSFileManager()
-        manager.removeItemAtURL(url, error: nil)
+        do {
+            try manager.removeItemAtURL(url)
+        } catch let error as NSError {
+            print(error)
+        }
+        
     }
 }
