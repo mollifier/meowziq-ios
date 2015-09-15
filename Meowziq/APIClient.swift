@@ -39,7 +39,7 @@ class APIClient {
     }
     
     class func addSong(song: MPMediaItem, songRawData: NSData,
-        success: Void -> Void, fail: (NSError) -> Void
+        success: Void -> Void, fail: (ErrorType) -> Void
         ) -> Void {
             
         let urlRequest = urlRequestWithComponentsForAddSong(
@@ -50,7 +50,7 @@ class APIClient {
                 "artist": song.artist
             ])
         
-        Alamofire.upload(urlRequest.0, urlRequest.1)
+        Alamofire.upload(urlRequest.0, data: urlRequest.1)
             .response { (request, response, data, error) in
                 if let error = error {
                     fail(error)
@@ -63,12 +63,12 @@ class APIClient {
     // ref. http://stackoverflow.com/questions/26121827/uploading-file-with-parameters-using-alamofire
     // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
     private class func urlRequestWithComponentsForAddSong(
-        urlString: String, song: NSData, parameters: Dictionary<String, String>
+        urlString: String, song: NSData, parameters: Dictionary<String, String?>
         ) -> (URLRequestConvertible, NSData)
     {
         
         // create url request to send
-        var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
         let boundaryConstant = "myRandomBoundary12345";
         let contentType = "multipart/form-data;boundary="+boundaryConstant
