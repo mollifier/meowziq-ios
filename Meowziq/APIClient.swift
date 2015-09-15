@@ -41,58 +41,25 @@ class APIClient {
     class func addSong(song: MPMediaItem, songRawData: NSData,
         success: Void -> Void, fail: (ErrorType) -> Void
         ) -> Void {
-            
-        let urlRequest = urlRequestWithComponentsForAddSong(
-            Urls.instance.songs,
-            song: songRawData,
-            parameters: [
-                "title": song.title,
-                "artist": song.artist
-            ])
-        
-        Alamofire.upload(urlRequest.0, data: urlRequest.1)
-            .response { (request, response, data, error) in
-                if let error = error {
-                    fail(error)
-                } else {
-                    success()
-                }
-        }
+            Alamofire.upload(
+                .POST,
+                Urls.instance.songs,
+                multipartFormData: { formData in
+                    if let title = song.title?.dataUsingEncoding(NSUTF8StringEncoding) {
+                        formData.appendBodyPart(data: title, name: "title")
+                    }
+                    if let artist = song.artist?.dataUsingEncoding(NSUTF8StringEncoding) {
+                        formData.appendBodyPart(data: artist, name: "artist")
+                    }
+                    formData.appendBodyPart(data: songRawData, name: "file", fileName: "file.mp4", mimeType: "audio/mp4")
+                },
+                encodingCompletion: { result in
+                    switch result {
+                    case .Success(_, _, _):
+                        success()
+                    case .Failure(let error):
+                        fail(error)
+                    }
+            })
     }
-    
-    // ref. http://stackoverflow.com/questions/26121827/uploading-file-with-parameters-using-alamofire
-    // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
-    private class func urlRequestWithComponentsForAddSong(
-        urlString: String, song: NSData, parameters: Dictionary<String, String?>
-        ) -> (URLRequestConvertible, NSData)
-    {
-        
-        // create url request to send
-        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        let boundaryConstant = "myRandomBoundary12345";
-        let contentType = "multipart/form-data;boundary="+boundaryConstant
-        mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-        
-        // create upload data to send
-        let uploadData = NSMutableData()
-        
-        // add song
-        uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.m4a\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData("Content-Type: audio/mp4\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        uploadData.appendData(song)
-        
-        // add parameters
-        for (key, value) in parameters {
-            uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
-        }
-        uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        
-        // return URLRequestConvertible and NSData
-        return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
-    }
-
 }
