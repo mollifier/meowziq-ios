@@ -27,38 +27,49 @@ class MusicManager {
         success: NSData -> Void,
         fail: NSError -> Void) -> Void {
             
-            let exporter = createSongExporter(item)
-            exporter.exportAsynchronouslyWithCompletionHandler({ () -> Void in
-                switch exporter.status {
-                case .Completed:
-                    let rawData = NSData(contentsOfURL: exporter.outputURL!)!
-                    success(rawData)
-                default:
-                    let e = NSError(
-                        domain: "jp.co.faithcreates.Meowziq",
-                        code: MusicManagerError.RawDataAccessFailed.rawValue,
-                        userInfo: [
-                            "exporterStatus": exporter.status.rawValue
-                        ])
-                    fail(e)
-                }
-                
-                self.removeExportedFile(exporter.outputURL!)
-            })
+            if let exporter = createSongExporter(item) {
+                exporter.exportAsynchronouslyWithCompletionHandler({ () -> Void in
+                    switch exporter.status {
+                    case .Completed:
+                        let rawData = NSData(contentsOfURL: exporter.outputURL!)!
+                        success(rawData)
+                    default:
+                        let e = NSError(
+                            domain: "jp.co.faithcreates.Meowziq",
+                            code: MusicManagerError.RawDataAccessFailed.rawValue,
+                            userInfo: [
+                                "exporterStatus": exporter.status.rawValue
+                            ])
+                        fail(e)
+                    }
+                    
+                    self.removeExportedFile(exporter.outputURL!)
+                })
+            } else {
+                let e = NSError(
+                    domain: "jp.co.faithcreates.Meowziq",
+                    code: MusicManagerError.RawDataAccessFailed.rawValue,
+                    userInfo: nil
+                )
+                fail(e)
+            }
     }
     
-    private class func createSongExporter(item: MPMediaItem) -> AVAssetExportSession {
-        let url = item.assetURL
-        let asset = AVURLAsset(URL: url!, options: nil)
-        let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)
-        
-        exporter!.outputFileType = "com.apple.m4a-audio";
-        
-        let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        let fileName = createExportFileName()
-        exporter!.outputURL = NSURL(fileURLWithPath: docDir).URLByAppendingPathComponent(fileName)
-        
-        return exporter!
+    private class func createSongExporter(item: MPMediaItem) -> AVAssetExportSession? {
+        if let url = item.assetURL {
+            let asset = AVURLAsset(URL: url, options: nil)
+            let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A)
+            
+            exporter?.outputFileType = "com.apple.m4a-audio";
+            
+            let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            let fileName = createExportFileName()
+            exporter?.outputURL = NSURL(fileURLWithPath: docDir).URLByAppendingPathComponent(fileName)
+            
+            return exporter
+        } else {
+            return nil
+        }
     }
     
     private class func createExportFileName() -> String {
