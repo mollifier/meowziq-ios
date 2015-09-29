@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fyh-bI-hsL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fyh-bI-hsL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yQT-go-55U">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="56" id="nWO-eF-nMb" customClass="SongCell" customModule="Meowziq">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="600" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nWO-eF-nMb" id="D07-Yb-49d">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="title" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-hW-bX7">
@@ -56,12 +58,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wEz-2j-bMo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yQT-go-55U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FsW-Fo-uoo"/>
+                            <constraint firstItem="wEz-2j-bMo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Cb-05-6vP"/>
+                            <constraint firstItem="wEz-2j-bMo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9s7-n9-iVs"/>
+                            <constraint firstItem="yQT-go-55U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="FsW-Fo-uoo"/>
                             <constraint firstItem="yQT-go-55U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jf1-Q9-UG3"/>
                             <constraint firstAttribute="bottom" secondItem="yQT-go-55U" secondAttribute="bottom" id="mIH-9D-4jh"/>
+                            <constraint firstItem="wEz-2j-bMo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="mLn-8H-L7K"/>
                             <constraint firstAttribute="trailing" secondItem="yQT-go-55U" secondAttribute="trailing" id="mwt-1V-DXl"/>
                             <constraint firstAttribute="centerX" secondItem="yQT-go-55U" secondAttribute="centerX" id="ywJ-YY-sXa"/>
                         </constraints>
@@ -74,6 +83,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="wEz-2j-bMo" id="GxQ-cb-ONI"/>
                         <outlet property="tableView" destination="yQT-go-55U" id="s48-6Z-moe"/>
                     </connections>
                 </viewController>
