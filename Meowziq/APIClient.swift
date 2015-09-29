@@ -45,12 +45,8 @@ class APIClient {
                 .POST,
                 Urls.instance.songs,
                 multipartFormData: { formData in
-                    if let title = song.title?.dataUsingEncoding(NSUTF8StringEncoding) {
-                        formData.appendBodyPart(data: title, name: "title")
-                    }
-                    if let artist = song.artist?.dataUsingEncoding(NSUTF8StringEncoding) {
-                        formData.appendBodyPart(data: artist, name: "artist")
-                    }
+                    song.title?.dataUsingEncoding(NSUTF8StringEncoding).map { formData.appendBodyPart(data: $0, name: "title") }
+                    song.artist?.dataUsingEncoding(NSUTF8StringEncoding).map { formData.appendBodyPart(data: $0, name: "artist") }
                     formData.appendBodyPart(data: songRawData, name: "file", fileName: "file.mp4", mimeType: "audio/mp4")
                 },
                 encodingCompletion: { result in
