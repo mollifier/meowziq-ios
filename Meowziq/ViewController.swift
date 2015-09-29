@@ -12,8 +12,9 @@ import SVProgressHUD
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
-    let songs = MusicManager.getSongs()
+    var songs = MusicManager.getSongs()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +23,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        addRefreshControl()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func pullToRefresh() {
+        songs = MusicManager.getSongs()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
+    func addRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
+        refreshControl.addTarget(self, action: "pullToRefresh", forControlEvents:.ValueChanged)
+        tableView.addSubview(refreshControl!)
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! SongCell
         cell.setCell(songs[indexPath.row])
