@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func pullToRefresh() {
         songs = MusicManager.getSongs()
+        tableView.reloadData()
         refreshControl.endRefreshing()
     }
 
