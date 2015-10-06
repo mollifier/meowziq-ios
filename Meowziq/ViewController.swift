@@ -58,21 +58,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         SVProgressHUD.showWithStatus("送信中……")
         let song = songs[indexPath.row]
+        let deselectRow = { tableView.deselectRowAtIndexPath(indexPath, animated: true) }
         MusicManager.getSongRawData(
             song,
             success: { rawData in
                 APIClient.addSong(
                     song, songRawData: rawData,
-                    success: { SVProgressHUD.showSuccessWithStatus("送信成功!") },
+                    success: {
+                        SVProgressHUD.showSuccessWithStatus("送信成功!")
+                        deselectRow()
+                    },
                     fail: { e in
                         SVProgressHUD.showErrorWithStatus("送信失敗!")
                         print(e)
+                        deselectRow()
                     }
                 )
             },
             fail: { e in
                 SVProgressHUD.showErrorWithStatus("送信失敗!")
                 print(e)
+                deselectRow()
             }
         )
     }
