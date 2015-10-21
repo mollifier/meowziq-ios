@@ -10,8 +10,9 @@ import UIKit
 import MediaPlayer
 import SVProgressHUD
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var refreshControl: UIRefreshControl!
     
     var songs = MusicManager.getSongs()
@@ -24,6 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
         addRefreshControl()
+        
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +84,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 deselectRow()
             }
         )
+    }
+    
+    // UISearchBarDelegate
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        searchBar.text = ""
+        songs = MusicManager.getSongs()
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if let keyword = searchBar.text {
+            // 曲のタイトルまたはアーティスト名に部分一致する曲を絞り込みます
+            // 大文字小文字の違いを無視します
+            let lowercaseKeyword = keyword.lowercaseString
+            let searchResult = MusicManager.getSongs().filter { ($0.title?.lowercaseString.containsString(lowercaseKeyword) == true) || ($0.artist?.lowercaseString.containsString(lowercaseKeyword) == true) }
+            songs = searchResult
+            tableView.reloadData()
+        }
+        
+        // キーボードを消します
+        searchBar.resignFirstResponder()
+        // キーボードを消すとキャンセルボタンが自動的に無効状態になってしまいます
+        // それを防ぐために、キーボードを消した後にキャンセルボタンを明示的に有効状態にします
+        // searchBarのsubviewsおよびsubviewsのsubviewsからUIButtonを探して、それをenabled = trueにします
+        searchBar.subviews.flatMap({ [$0] + $0.subviews }).flatMap({ $0 as? UIButton }).forEach({ $0.enabled = true })
     }
 }
 
